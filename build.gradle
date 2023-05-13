@@ -20,6 +20,7 @@ dependencies {
     implementation 'org.jetbrains.kotlin-wrappers:kotlin-react-redux:7.2.6-pre.346'
 
     implementation(npm("@ijprest/kle-serial", "0.15.1"))
+    implementation(npm("axios", "1.4.0"))
 }
 
 kotlin {
