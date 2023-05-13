@@ -50,13 +50,18 @@ val Convert = FC<ConvertProps> { props ->
             value = "Convert"
             onClick = {
                 println(inputJsonString)
-                val keyboard = kle.Serial.parse(inputJsonString)
-                val layoutItems: List<LayoutItem> = keyboard
-                    .keys
-                    .sortedBy { it.labels.index }
-                    .map(Key::toLayoutItem)
+                try {
+                    val keyboard = kle.Serial.parse(inputJsonString)
+                    val layoutItems: List<LayoutItem> = keyboard
+                        .keys
+                        .sortedBy { it.labels.index }
+                        .map(Key::toLayoutItem)
+                    outputJsonString = json.encodeToString<List<LayoutItem>>(layoutItems)
+                } catch (e: dynamic) {
+                    outputJsonString = "Invalid JSON"
 
-                outputJsonString = json.encodeToString<List<LayoutItem>>(layoutItems)
+                    println(outputJsonString)
+                }
             }
         }
 
