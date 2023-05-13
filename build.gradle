@@ -1,0 +1,37 @@
+plugins {
+    id 'org.jetbrains.kotlin.js' version '1.8.20'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.8.20'
+}
+
+group = 'com.github.mcclurej06'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1"
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    implementation 'org.jetbrains.kotlin-wrappers:kotlin-react:18.2.0-pre.346'
+    implementation 'org.jetbrains.kotlin-wrappers:kotlin-react-dom:18.2.0-pre.346'
+    implementation 'org.jetbrains.kotlin-wrappers:kotlin-emotion:11.9.3-pre.346'
+    implementation 'org.jetbrains.kotlin-wrappers:kotlin-redux:4.1.2-pre.346'
+    implementation 'org.jetbrains.kotlin-wrappers:kotlin-react-redux:7.2.6-pre.346'
+
+    implementation(npm("@ijprest/kle-serial", "0.15.1"))
+    implementation(npm("json5", "2.2.3"))
+}
+
+kotlin {
+    js {
+        binaries.executable()
+        browser {
+            commonWebpackConfig {
+                cssSupport {
+                    it.enabled.set(true)
+                }
+            }
+        }
+    }
+}
