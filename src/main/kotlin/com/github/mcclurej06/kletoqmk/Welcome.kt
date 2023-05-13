@@ -35,8 +35,8 @@ val Convert = FC<ConvertProps> { props ->
             alignItems = AlignItems.flexStart
             width = 50.em
         }
-        div{
-            + "Gist id or KLE url:"
+        div {
+            +"Gist id or KLE url:"
         }
         div {
             input {
@@ -53,7 +53,7 @@ val Convert = FC<ConvertProps> { props ->
                     println(inputGist)
                     if (!inputGist.isNullOrBlank()) {
                         inputGist?.let {
-                            val gistId = if (urlRegex.matches(it)){
+                            val gistId = if (urlRegex.matches(it)) {
                                 urlRegex.replace(it, "$1")
                             } else {
                                 it.trim()
@@ -71,8 +71,8 @@ val Convert = FC<ConvertProps> { props ->
             }
         }
 
-        div{
-            + "KLE json:"
+        div {
+            +"KLE json:"
         }
         textarea {
             textarea()
@@ -104,8 +104,8 @@ val Convert = FC<ConvertProps> { props ->
             }
         }
 
-        div{
-            + "QMK layout json:"
+        div {
+            +"QMK layout json:"
         }
         textarea {
             textarea()
