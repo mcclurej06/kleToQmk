@@ -8,6 +8,5 @@ fun main() {
     val container = document.createElement("div")
     document.body!!.appendChild(container)
 
-    val welcome = Welcome.create()
-    createRoot(container).render(welcome)
+    createRoot(container).render(Convert.create())
 }

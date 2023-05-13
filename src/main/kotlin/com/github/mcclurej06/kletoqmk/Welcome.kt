@@ -13,14 +13,14 @@ import react.dom.html.ReactHTML.input
 import react.dom.html.ReactHTML.textarea
 import react.useState
 
-external interface WelcomeProps : Props {
+external interface ConvertProps : Props {
     var inputJsonString: String
     var outputJsonString: String
 }
 
 val json = Json { prettyPrint = true }
 
-val Welcome = FC<WelcomeProps> { props ->
+val Convert = FC<ConvertProps> { props ->
     var inputJsonString by useState(props.inputJsonString)
     var outputJsonString by useState(props.outputJsonString)
 
